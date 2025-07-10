@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Fraud Chain Detection – SQL Project</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="../../../assets/css/main.css" />
+  <noscript><link rel="stylesheet" href="../../../assets/css/noscript.css" /></noscript>
+</head>
+<body class="is-preload">
+
+  <div id="page-wrapper">
+    <div id="wrapper">
+
+      <!-- Project Intro -->
+      <section class="panel spotlight large left">
+        <div class="content span-5">
+          <h2 class="major">Fraud Chain Detection</h2>
+          <p>
+            In this project, I analyzed a dataset of cryptocurrency transactions to identify potential fraudulent behavior based on suspicious chaining patterns.
+          </p>
+          <ul>
+            <li><strong>Goal:</strong> Detect transaction chains occurring within 5 minutes of each other.</li>
+            <li><strong>Criteria:</strong> Total amount &gt; 150, with consecutive timestamps.</li>
+            <li><strong>Output:</strong> Ranked chains per sender based on total loss.</li>
+          </ul>
+          <a href="query.sql" class="button primary icon solid fa-code">View SQL Query</a>
+        </div>
+        <div class="image filtered tinted" data-position="top right">
+          <img src="result_ss.png" alt="Result Screenshot" />
+        </div>
+      </section>
+
+      <!-- Table Preview Info -->
+      <section class="panel color2-alt">
+        <div class="intro color2">
+          <h3 class="major">Expected Output</h3>
+          <p>
+            The result includes:
+            <strong>sender_id, chain_id, chain_start, chain_end, total_amount, num_txns, fraud_rank, transaction_ids</strong>.
+            It helps surface suspicious high-frequency, high-value transfer chains for further review.
+          </p>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <div class="copyright">
+        &copy; Suraj Antony. Design adapted from <a href="https://html5up.net">HTML5 UP</a>.
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../../../assets/js/jquery.min.js"></script>
+  <script src="../../../assets/js/browser.min.js"></script>
+  <script src="../../../assets/js/breakpoints.min.js"></script>
+  <script src="../../../assets/js/main.js"></script>
+
+</body>
+</html>
