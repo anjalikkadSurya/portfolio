@@ -12,6 +12,7 @@
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
     }
     .slider-section {
       flex: 0 0 100%;
@@ -19,22 +20,38 @@
       padding: 2rem;
       box-sizing: border-box;
       min-width: 100vw;
+      background-color: #1e1e1e;
+      color: #fff;
     }
     .slider-section h2 {
       margin-bottom: 1rem;
     }
-    .dark-text-box {
-      background-color: #f0f0f0;
-      color: #000;
-      padding: 2rem;
+    .slider-section ul {
+      padding-left: 1.5rem;
+    }
+    .slider-section img {
       border-radius: 8px;
     }
-    .slider-nav {
+    .slider-controls {
       text-align: center;
-      margin-top: 1rem;
+      margin: 1rem 0;
     }
-    .slider-nav a {
-      margin: 0 1rem;
+    .slider-controls button {
+      padding: 0.5rem 1rem;
+      margin: 0 0.5rem;
+      font-size: 1rem;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .slider-controls button:hover {
+      background-color: #555;
+    }
+    .portfolio-link {
+      text-align: center;
+      margin-top: 2rem;
     }
   </style>
 </head>
@@ -42,10 +59,16 @@
 
   <div id="page-wrapper">
     <div id="wrapper">
-      <div class="slider-wrapper">
+
+      <div class="slider-controls">
+        <button onclick="scrollSlider(-1)">&larr; Prev</button>
+        <button onclick="scrollSlider(1)">Next &rarr;</button>
+      </div>
+
+      <div class="slider-wrapper" id="sliderWrapper">
 
         <!-- Slide 1: Project Description -->
-        <section class="slider-section dark-text-box">
+        <section class="slider-section">
           <h2 class="major">Fraud Chain Detection</h2>
           <p>This project analyzes a dataset of cryptocurrency transactions to identify suspicious chains of transfers within tight time windows.</p>
           <ul>
@@ -78,15 +101,18 @@
         <!-- Slide 4: Screenshot -->
         <section class="slider-section">
           <h2 class="major">Query Output (Screenshot)</h2>
-          <img src="result_ss.png" alt="Fraud Detection Result Screenshot" style="max-width:100%; border-radius: 8px;" />
+          <img src="result_ss.png" alt="Fraud Detection Result Screenshot" style="max-width:100%;" />
         </section>
 
         <!-- Slide 5: Back to Portfolio -->
         <section class="slider-section">
           <h2 class="major">Explore More Projects</h2>
           <p>Go back to the main portfolio to explore other SQL, A/B testing, and ML projects.</p>
-          <a href="../../../index.html" class="button">Back to Portfolio</a>
+          <div class="portfolio-link">
+            <a href="../../../index.html" class="button">Back to Portfolio</a>
+          </div>
         </section>
+
       </div>
     </div>
   </div>
@@ -95,5 +121,12 @@
   <script src="../../../assets/js/browser.min.js"></script>
   <script src="../../../assets/js/breakpoints.min.js"></script>
   <script src="../../../assets/js/main.js"></script>
+  <script>
+    function scrollSlider(direction) {
+      const slider = document.getElementById('sliderWrapper');
+      const scrollAmount = slider.offsetWidth;
+      slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+    }
+  </script>
 </body>
 </html>
