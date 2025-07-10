@@ -11,20 +11,22 @@
       display: flex;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
     }
     .slider-section {
       flex: 0 0 100%;
-      scroll-snap-align: center;
+      scroll-snap-align: start;
       padding: 2rem;
       box-sizing: border-box;
+      min-width: 100vw;
     }
     .slider-section h2 {
       margin-bottom: 1rem;
     }
     .dark-text-box {
-      background-color: rgba(255, 255, 255, 0.9);
+      background-color: #f0f0f0;
       color: #000;
-      padding: 1rem;
+      padding: 2rem;
       border-radius: 8px;
     }
     .slider-nav {
