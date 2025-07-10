@@ -7,11 +7,32 @@
   <link rel="stylesheet" href="../../../assets/css/main.css" />
   <noscript><link rel="stylesheet" href="../../../assets/css/noscript.css" /></noscript>
   <style>
+    .slider-wrapper {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+    }
+    .slider-section {
+      flex: 0 0 100%;
+      scroll-snap-align: center;
+      padding: 2rem;
+      box-sizing: border-box;
+    }
+    .slider-section h2 {
+      margin-bottom: 1rem;
+    }
     .dark-text-box {
       background-color: rgba(255, 255, 255, 0.9);
       color: #000;
       padding: 1rem;
       border-radius: 8px;
+    }
+    .slider-nav {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .slider-nav a {
+      margin: 0 1rem;
     }
   </style>
 </head>
@@ -19,43 +40,52 @@
 
   <div id="page-wrapper">
     <div id="wrapper">
+      <div class="slider-wrapper">
 
-      <!-- Project Intro -->
-      <section class="panel spotlight large left">
-        <div class="content span-5 dark-text-box">
+        <!-- Slide 1: Project Description -->
+        <section class="slider-section dark-text-box">
           <h2 class="major">Fraud Chain Detection</h2>
-          <p>
-            In this project, I analyzed a dataset of cryptocurrency transactions to identify potential fraudulent behavior based on suspicious chaining patterns.
-          </p>
+          <p>This project analyzes a dataset of cryptocurrency transactions to identify suspicious chains of transfers within tight time windows.</p>
           <ul>
-            <li><strong>Goal:</strong> Detect transaction chains occurring within 5 minutes of each other.</li>
-            <li><strong>Criteria:</strong> Total amount &gt; 150, with consecutive timestamps.</li>
-            <li><strong>Output:</strong> Ranked chains per sender based on total loss.</li>
+            <li><strong>Goal:</strong> Find consecutive transactions within 5 minutes of each other.</li>
+            <li><strong>Criteria:</strong> Total amount > 150 in each chain.</li>
+            <li><strong>Output:</strong> Rank chains by total amount lost per sender.</li>
           </ul>
-          <a href="query.sql" class="button primary icon solid fa-code">View SQL Query</a>
-        </div>
-        <div class="image filtered tinted" data-position="top right">
-          <img src="result_ss.png" alt="Result Screenshot" />
-        </div>
-      </section>
+        </section>
 
-      <!-- Table Preview Info -->
-      <section class="panel color2-alt">
-        <div class="intro color2">
-          <h3 class="major">Expected Output</h3>
-          <p>
-            The result includes:
-            <strong>sender_id, chain_id, chain_start, chain_end, total_amount, num_txns, fraud_rank, transaction_ids</strong>.
-            It helps surface suspicious high-frequency, high-value transfer chains for further review.
-          </p>
-        </div>
-      </section>
+        <!-- Slide 2: Expected Output -->
+        <section class="slider-section">
+          <h2 class="major">Expected Output</h2>
+          <p>The output contains the following fields:</p>
+          <ul>
+            <li>sender_id</li>
+            <li>chain_id (unique per sender)</li>
+            <li>chain_start and chain_end timestamps</li>
+            <li>total_amount, num_txns, fraud_rank</li>
+            <li>transaction_ids (involved in chain)</li>
+          </ul>
+        </section>
 
-      <!-- Footer -->
-      <div class="copyright">
-        &copy; Suraj Antony. Design adapted from <a href="https://html5up.net">HTML5 UP</a>.
+        <!-- Slide 3: SQL Query -->
+        <section class="slider-section">
+          <h2 class="major">SQL Query</h2>
+          <p>You can view or download the full SQL query file here:</p>
+          <a href="query.sql" class="button primary icon solid fa-code">Download SQL Query</a>
+        </section>
+
+        <!-- Slide 4: Screenshot -->
+        <section class="slider-section">
+          <h2 class="major">Query Output (Screenshot)</h2>
+          <img src="result_ss.png" alt="Fraud Detection Result Screenshot" style="max-width:100%; border-radius: 8px;" />
+        </section>
+
+        <!-- Slide 5: Back to Portfolio -->
+        <section class="slider-section">
+          <h2 class="major">Explore More Projects</h2>
+          <p>Go back to the main portfolio to explore other SQL, A/B testing, and ML projects.</p>
+          <a href="../../../index.html" class="button">Back to Portfolio</a>
+        </section>
       </div>
-
     </div>
   </div>
 
@@ -63,6 +93,5 @@
   <script src="../../../assets/js/browser.min.js"></script>
   <script src="../../../assets/js/breakpoints.min.js"></script>
   <script src="../../../assets/js/main.js"></script>
-
 </body>
 </html>
