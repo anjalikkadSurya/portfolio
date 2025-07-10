@@ -1,132 +1,179 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>Fraud Chain Detection – SQL Project</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-  <link rel="stylesheet" href="../../../assets/css/main.css" />
-  <noscript><link rel="stylesheet" href="../../../assets/css/noscript.css" /></noscript>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Crypto Fraud Detection</title>
   <style>
-    .slider-wrapper {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      scroll-behavior: smooth;
-    }
-    .slider-section {
-      flex: 0 0 100%;
-      scroll-snap-align: start;
+    body {
+      margin: 0;
       padding: 2rem;
-      box-sizing: border-box;
-      min-width: 100vw;
-      background-color: #1e1e1e;
-      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, rgba(255,0,0,0.6), rgba(255,0,0,0.3));
+      color: black;
+      overflow-y: scroll;
     }
-    .slider-section h2 {
+
+    .section {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      border-radius: 12px;
+      background-color: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      font-size: 2rem;
       margin-bottom: 1rem;
-    }
-    .slider-section ul {
-      padding-left: 1.5rem;
-    }
-    .slider-section img {
-      border-radius: 8px;
-    }
-    .slider-controls {
       text-align: center;
-      margin: 1rem 0;
     }
-    .slider-controls button {
-      padding: 0.5rem 1rem;
-      margin: 0 0.5rem;
-      font-size: 1rem;
+
+    pre {
+      background-color: #f4f4f4;
+      padding: 1rem;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      border-left: 5px solid crimson;
+    }
+
+    img {
+      width: 100%;
+      max-width: 800px;
+      display: block;
+      margin: 0 auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .download {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .download a {
+      text-decoration: none;
+      background-color: #111;
+      color: #fff;
+      padding: 0.8rem 1.2rem;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .download a:hover {
       background-color: #333;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
     }
-    .slider-controls button:hover {
-      background-color: #555;
-    }
-    .portfolio-link {
+
+    .back-link {
       text-align: center;
       margin-top: 2rem;
     }
+
+    .back-link a {
+      text-decoration: none;
+      font-weight: bold;
+      color: crimson;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
-<body class="is-preload">
+<body>
 
-  <div id="page-wrapper">
-    <div id="wrapper">
-
-      <div class="slider-controls">
-        <button onclick="scrollSlider(-1)">&larr; Prev</button>
-        <button onclick="scrollSlider(1)">Next &rarr;</button>
-      </div>
-
-      <div class="slider-wrapper" id="sliderWrapper">
-
-        <!-- Slide 1: Project Description -->
-        <section class="slider-section">
-          <h2 class="major">Fraud Chain Detection</h2>
-          <p>This project analyzes a dataset of cryptocurrency transactions to identify suspicious chains of transfers within tight time windows.</p>
-          <ul>
-            <li><strong>Goal:</strong> Find consecutive transactions within 5 minutes of each other.</li>
-            <li><strong>Criteria:</strong> Total amount > 150 in each chain.</li>
-            <li><strong>Output:</strong> Rank chains by total amount lost per sender.</li>
-          </ul>
-        </section>
-
-        <!-- Slide 2: Expected Output -->
-        <section class="slider-section">
-          <h2 class="major">Expected Output</h2>
-          <p>The output contains the following fields:</p>
-          <ul>
-            <li>sender_id</li>
-            <li>chain_id (unique per sender)</li>
-            <li>chain_start and chain_end timestamps</li>
-            <li>total_amount, num_txns, fraud_rank</li>
-            <li>transaction_ids (involved in chain)</li>
-          </ul>
-        </section>
-
-        <!-- Slide 3: SQL Query -->
-        <section class="slider-section">
-          <h2 class="major">SQL Query</h2>
-          <p>You can view or download the full SQL query file here:</p>
-          <a href="query.sql" class="button primary icon solid fa-code">Download SQL Query</a>
-        </section>
-
-        <!-- Slide 4: Screenshot -->
-        <section class="slider-section">
-          <h2 class="major">Query Output (Screenshot)</h2>
-          <img src="result_ss.png" alt="Fraud Detection Result Screenshot" style="max-width:100%;" />
-        </section>
-
-        <!-- Slide 5: Back to Portfolio -->
-        <section class="slider-section">
-          <h2 class="major">Explore More Projects</h2>
-          <p>Go back to the main portfolio to explore other SQL, A/B testing, and ML projects.</p>
-          <div class="portfolio-link">
-            <a href="../../../index.html" class="button">Back to Portfolio</a>
-          </div>
-        </section>
-
-      </div>
-    </div>
+  <div class="section">
+    <h1>🕵️‍♂️ Cryptocurrency Fraud Chain Detection</h1>
   </div>
 
-  <script src="../../../assets/js/jquery.min.js"></script>
-  <script src="../../../assets/js/browser.min.js"></script>
-  <script src="../../../assets/js/breakpoints.min.js"></script>
-  <script src="../../../assets/js/main.js"></script>
-  <script>
-    function scrollSlider(direction) {
-      const slider = document.getElementById('sliderWrapper');
-      const scrollAmount = slider.offsetWidth;
-      slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
-    }
-  </script>
+  <div class="section">
+    <h2>📌 Question</h2>
+    <p>
+      You are analyzing a dataset of cryptocurrency transactions with the following schema:<br/>
+      <code>transactions(transaction_id, sender_id, receiver_id, transaction_timestamp, amount)</code><br/><br/>
+
+      🎯 <strong>Objective</strong>:
+      <ul>
+        <li>For each <code>sender_id</code>, identify <strong>chains of transactions</strong> that meet all the following conditions:</li>
+        <ul>
+          <li>Consecutive transactions (ordered by timestamp) must occur <strong>within 5 minutes</strong> of each other</li>
+          <li>Total amount of the transaction chain must be <strong>greater than 150</strong></li>
+          <li><strong>Flag</strong> those chains as potential fraud</li>
+          <li>Rank fraud chains per sender by <strong>total amount lost</strong> (descending)</li>
+        </ul>
+      </ul>
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>✅ Expected Output</h2>
+    <ul>
+      <li>sender_id</li>
+      <li>chain_id (unique ID per chain per sender)</li>
+      <li>chain_start and chain_end timestamps</li>
+      <li>total_amount of that chain</li>
+      <li>num_txns in the chain</li>
+      <li>fraud_rank (1 = highest loss chain per sender)</li>
+      <li>list of transaction_ids involved</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>🧠 SQL Query</h2>
+    <pre>
+with sus_sessions_1 as(
+  select *, 
+    case 
+      when extract(epoch from lead(transaction_timestamp) over(partition by sender_id order by transaction_timestamp) - transaction_timestamp) >= 60*5 then 1
+      when extract(epoch from transaction_timestamp - lag(transaction_timestamp) over(partition by sender_id order by transaction_timestamp)) >= 60*5 then 1 
+      else 0 
+    end as new_session_flag
+  from crypto_currency_fraud_sessions
+),
+
+sus_session_2 as(
+  select *, sum(new_session_flag) over(partition by sender_id order by transaction_timestamp) as session_id
+  from sus_sessions_1
+),
+
+pre_final_data as(
+  select sender_id, session_id as chain_id, 
+    min(transaction_timestamp) as chain_start_time,
+    max(transaction_timestamp) as chain_end_time,
+    sum(amount) as total_amount,
+    count(distinct transaction_id) as num_txns,
+    array_agg(row(transaction_id, transaction_timestamp)) as list_txn_id_involved
+  from sus_session_2
+  group by sender_id, session_id
+  having count(distinct transaction_id) > 1 and sum(amount) > 150
+),
+
+final_data as(
+  select *, dense_rank() over(partition by sender_id order by total_amount desc) as fraud_rank
+  from pre_final_data
+)
+
+select sender_id, 
+  concat(sender_id, '_', chain_id) as chain_id,
+  chain_start_time, chain_end_time, total_amount, num_txns, fraud_rank, list_txn_id_involved
+from final_data
+order by sender_id, fraud_rank
+    </pre>
+  </div>
+
+  <div class="section">
+    <h2>📸 Output Screenshot</h2>
+    <img src="result_ss.png" alt="Result Screenshot">
+  </div>
+
+  <div class="section download">
+    <a href="query.sql" download>⬇️ Download SQL File</a>
+  </div>
+
+  <div class="back-link">
+    <a href="../index.html">🔙 Back to Portfolio</a>
+  </div>
+
 </body>
 </html>
