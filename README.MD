@@ -1,5 +1,7 @@
 Senior Product Analyst with 5+ years of experience optimizing large-scale B2C platforms (250M+ DAUs), driving product growth through data-led experimentation, advanced causal inference, and storytelling. I specialize in turning complex data into clear business action across A/B testing, retention analysis, engagement loops, and monetization strategies.
 
+Check out my portfolio: https://anjalikkadsurya.github.io/portfolio/index.html
+
 At Glance (InMobi Group), I led product analytics initiatives that resulted in:
  +100% engagement
  +20% retention
