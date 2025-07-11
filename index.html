@@ -25,6 +25,31 @@
 				display: block;
 				margin-top: 0.2em;
 			}
+			
+			.cta-link {
+				text-decoration: none;
+				outline: none; /* removes dotted line */
+				color: inherit; /* keep text color consistent */
+				display: inline-flex;
+				align-items: center;
+				gap: 0.4em;
+				font-weight: bold;
+			}
+			
+			.cta-link:focus {
+				outline: 2px solid #007BFF; /* optional custom focus style */
+				outline-offset: 2px;
+			}
+			
+			.cta-arrow {
+				display: inline-block;
+				font-size: 0.9em;
+				transition: transform 0.2s ease;
+			}
+			
+			.cta-link:hover .cta-arrow {
+				transform: translateX(4px);
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -77,7 +102,9 @@
 						<p>
 							<ul>
 								<li>
-									<a href="" target="_blank" style="text-decoration: none;"><strong>Daily Regional Sales Leaderboard & Rewards:</strong></a>
+									<a href="#" target="_blank" class="cta-link">
+										<span>Daily Regional Sales Leaderboard & Rewards</span><span class="cta-arrow">→</span>
+									</a>
 								</li>
 								<ul>
 									<li>
