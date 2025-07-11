@@ -63,6 +63,34 @@
 				border-radius: 3px;
 				font-family: monospace;
 			}
+			
+			.scroll-box {
+				max-height: 300px; /* Adjust height to fit 2 project-cards */
+				overflow-y: auto;
+				padding-right: 10px; /* Room for scrollbar */
+				scrollbar-width: thin;
+				scrollbar-color: #888 transparent; /* For Firefox */
+			}
+			
+			.scroll-box::-webkit-scrollbar {
+				width: 8px;
+			}
+			
+			.scroll-box::-webkit-scrollbar-thumb {
+				background: #aaa;
+				border-radius: 4px;
+			}
+			
+			.scroll-box::-webkit-scrollbar-track {
+				background: transparent;
+			}
+			
+			.project-card {
+					margin-bottom: 1.5em; /* Space between cards */
+			}
+			
+			
+
 		</style>
 	</head>
 	<body class="is-preload">
