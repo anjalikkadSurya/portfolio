@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dynamic Leaderboard</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, rgba(255,0,0,0.6), rgba(255,0,0,0.3));
+      color: black;
+      overflow-y: scroll;
+    }
+
+    .section {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      border-radius: 12px;
+      background-color: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    pre {
+      background-color: #f4f4f4;
+      padding: 1rem;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      border-left: 5px solid crimson;
+    }
+
+    img {
+      width: 100%;
+      max-width: 800px;
+      display: block;
+      margin: 0 auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .download {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .download a {
+      text-decoration: none;
+      background-color: #111;
+      color: #fff;
+      padding: 0.8rem 1.2rem;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .download a:hover {
+      background-color: #333;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .back-link a {
+      text-decoration: none;
+      font-weight: bold;
+      color: crimson;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="section">
+    <h1>🏆 Daily Regional Sales Leaderboard & Rewards 🏆</h1>
+  </div>
+
+  <div class="section">
+    <h2>📌 Question</h2>
+    <p>
+      To enhance motivation and recognize exceptional performance, management has introduced a tiered rewards system for sales staff. These incentives are based on both <strong>cumulative</strong> and <strong>daily</strong> sales performance. The <code>sales_data</code> table will be used to generate leaderboards and determine eligible recipients for the following rewards:<br/><br/>
+      🎁 <strong>Reward Structure:</strong>:
+	  <ul>
+		<li>Daily Cumulative Sales Leader (per region)</li>
+			<ul><li>The <strong>salesperson with the highest cumulative sales</strong> in their region up to and including that day will receive a gift voucher.</li></ul>
+		<li>Top Daily Sales Performer (per region)</li>
+			<ul><li>The salesperson with the <strong>highest sales</strong> for the <strong>current day</strong> in their region will receive a separate gift card.</li></ul>
+		<li>Top Cumulative Sales Leader of Q1 2024 (per region)</li>
+			<ul><li>At the end of Q1 (January–March 2024), the salesperson with the highest cumulative sales in each region will be awarded a tour voucher.</li></ul>
+	  </ul><br/><br/>
+	  📊 <strong>Dataset</strong>:
+			<code>sales_data(user_id, region, sales_date, revenue)</code>
+    </p>
+  </div>
+  
+  <div class="section">
+	<h2>🔍 Task:</h2>
+			For each day in Q1 2024 (January 1 to March 31, 2024) and for each region, identify:
+			<ul>
+				<li>The top salesperson based on cumulative sales up to and including that day, along with their total cumulative sales amount.</li>
+				<li>The top salesperson based on that day's sales alone, along with their revenue for that day.</li>
+			</ul>
+  </div>
+  
+  <div class="section">
+	<h2>📤 Expected Output Columns:</h2>
+		<ul>
+			<li><code>sales_date</code></li>
+			<li><code>region</code></li>
+			<li><code>user_id_cumulative</code>(user with highest cumulative sales)</li>
+			<li><code>total_cumulative_sales</code></li>
+			<li><code>user_id_daily</code>(user with highest sales on that specific day)</li>
+			<li><code>daily_sales</code></li>
+		</ul>
+			🔁 In case of ties (multiple users with the same top revenue), include all tied users.
+	
+	<h2>📅 Date Constraints:</h2>
+		<ul>
+			<li>Output results for each date between January 1 and March 31, 2024.</li>
+			<li>Cumulative sales are calculated from January 1, 2024 up to and including each sales_date.</li>
+			<li>Daily sales consider revenue on the specific sales_date only.</li>
+		</ul>
+  </div>
+
+  <div class="section">
+    <h2>🧠 SQL Query</h2>
+    <pre>
+with cumulative_sales_cte as(
+	select *, 
+	sum(revenue) over(partition by user_id order by sales_date asc) as cumulative_sales_per_salesman
+	from sales_data as a
+	where date_trunc('quarter', sales_date) = date('2024-01-01') -- i've used fucntion over date, this might fail partition pruning so take caution
+)
+
+, ranked_salesmen as(
+	select *, 
+	dense_rank() over(partition by region, sales_date order by cumulative_sales_per_salesman desc) as salesman_rank_cumulative,
+	dense_rank() over(partition by region, sales_date order by revenue desc) as salesman_rank_daily
+	from cumulative_sales_cte as a
+)
+
+select 
+
+		date(sales_date) as sales_date, region, 
+		array_agg(user_id) filter(where salesman_rank_cumulative = 1) as "salesman with the highest cumulative sales" ,
+		round(max(cumulative_sales_per_salesman) filter(where salesman_rank_cumulative = 1) :: numeric, 2) as total_cumulative_sales,
+		array_agg(user_id) filter(where salesman_rank_daily=1) as "salesmen with the highest sales on that specific day",
+		round(max(revenue) filter(where salesman_rank_daily=1)::numeric, 2) as daily_sales
+		
+from ranked_salesmen as a
+where (salesman_rank_cumulative = 1 
+		or 
+	   salesman_rank_daily = 1)
+and sales_date < date('2024-04-01')
+group by region, sales_date
+order by sales_date desc, region
+    </pre>
+  </div>
+
+  <div class="section">
+    <h2>📸 Output Screenshot</h2>
+    <img src="result_ss.png" alt="Result Screenshot">
+  </div>
+
+  <div class="section download">
+    <a href="query.sql" download>⬇️ Download SQL File</a>
+  </div>
+
+  <div class="back-link">
+    <a href="../index.html">🔙 Back to Portfolio</a>
+  </div>
+  
+</body>
+</html>
