@@ -1,62 +1,122 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>SQL Streak Detection – Suraj Antony</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-  <link rel="stylesheet" href="../../assets/css/main.css" />
-  <noscript><link rel="stylesheet" href="../../assets/css/noscript.css" /></noscript>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Crypto Fraud Detection</title>
   <style>
-    .content-area {
-      max-width: 900px;
-      margin: auto;
-      padding: 3rem 2rem;
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, rgba(255,0,0,0.6), rgba(255,0,0,0.3));
+      color: black;
+      overflow-y: scroll;
     }
-    code {
-      display: block;
-      background: #f6f6f6;
-      padding: 1em;
-      border-left: 3px solid #ccc;
-      white-space: pre-wrap;
+
+    .section {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      border-radius: 12px;
+      background-color: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    pre {
+      background-color: #f4f4f4;
+      padding: 1rem;
       overflow-x: auto;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      border-left: 5px solid crimson;
     }
+
     img {
-      max-width: 100%;
+      width: 100%;
+      max-width: 800px;
+      display: block;
+      margin: 0 auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .download {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .download a {
+      text-decoration: none;
+      background-color: #111;
+      color: #fff;
+      padding: 0.8rem 1.2rem;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .download a:hover {
+      background-color: #333;
+    }
+
+    .back-link {
+      text-align: center;
       margin-top: 2rem;
-      border: 1px solid #ccc;
+    }
+
+    .back-link a {
+      text-decoration: none;
+      font-weight: bold;
+      color: crimson;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
-<body class="is-preload">
-  <div id="page-wrapper">
-    <div id="wrapper">
-      <!-- Banner -->
-      <section class="panel banner right">
-        <div class="content color0 span-3-75">
-          <h1 class="major">SQL Project<br />
-          Longest Active Streaks</h1>
-          <p>Identifying the longest consecutive active day streaks for each user from engagement logs.</p>
-        </div>
-        <div class="image filtered span-1-75" data-position="center">
-          <img src="../../images/pic01.jpg" alt="SQL Streak Banner" />
-        </div>
-      </section>
+<body>
 
-      <!-- Main Content -->
-      <section class="panel">
-        <div class="content-area">
-          <h2 class="major">Problem Statement</h2>
-          <p>You are given a table <code>user_event_data(user_id, event_date, engaged_duration, revenue)</code>. Each row represents a user's engagement on a specific day. Write a SQL query to find the longest streak of consecutive active days for each user. For each user, return:</p>
-          <ul>
-            <li><code>user_id</code></li>
-            <li><code>start_date</code> of the longest streak</li>
-            <li><code>end_date</code> of the longest streak</li>
-            <li><code>max_streak</code> (number of consecutive days)</li>
-          </ul>
-          <p>If a user has multiple streaks of the same maximum length, return both ordered by <code>start_date</code> ascending.</p>
+  <div class="section">
+    <h1>🕵️‍♂️ Longest Active Streaks</h1>
+  </div>
 
-          <h2 class="major">SQL Query</h2>
-          <code>
+  <div class="section">
+    <h2>📌 Question</h2>
+    <p>
+      You are given a table user_event_data with the following schema:<br/>
+      <code>user_event_data(user_id, event_date, engaged_duration, revenue)</code><br/><br/>
+	  Each row represents a user's engagement on a specific day.
+      🎯 <strong>Objective</strong>:
+	  
+		start_date of the longest streak
+		end_date of the longest streak
+		max_streak (number of consecutive days)
+		
+	If a user has multiple streaks of the same maximum length, return both of them order by start_date asc.
+	  
+      <ul>
+        <li>Write a SQL query to find the <strong>longest streak</strong> of consecutive active days for each user (<code>user_id</code>). For each user, return:</li>
+        <ul>
+          <li>Consecutive transactions (ordered by timestamp) must occur <strong>within 5 minutes</strong> of each other</li>
+          <li><code>user_id</code></li>
+          <li><code>start_date</code> of the longest streak</li>
+		  <li><code>end_date</code> of the longest streak</li>
+          <li><code>max_streak</code> (number of consecutive days)</li>
+        </ul>
+      </ul>
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>🧠 SQL Query</h2>
+    <pre>
 with usable_data as
 (
 	select *, event_date - interval '1 day'*(row_number() over(partition by user_id order by event_date asc)) as date_anchor
@@ -83,23 +143,183 @@ select user_id, date(start_date) as start_date, date(end_date) as end_date, roun
 from teritary_data as a
 where row_handle=1
 order by user_id, start_date;
-          </code>
-
-          <h2 class="major">Screenshot</h2>
-          <img src="streak-output.png" alt="Query Output Screenshot" />
-
-          <p><a href="query.sql" download>Download SQL query</a></p>
-          <p><a href="https://anjalikkadsurya.github.io/portfolio/index.html">← Back to Portfolio</a></p>
-        </div>
-      </section>
-
-      <!-- Footer -->
-      <div class="copyright">&copy; Suraj Antony. Design adapted from <a href="https://html5up.net">HTML5 UP</a>.</div>
-    </div>
+    </pre>
   </div>
-  <script src="../../assets/js/jquery.min.js"></script>
-  <script src="../../assets/js/browser.min.js"></script>
-  <script src="../../assets/js/breakpoints.min.js"></script>
-  <script src="../../assets/js/main.js"></script>
+
+  <div class="section">
+    <h2>📸 Output Screenshot</h2>
+    <img src="result_ss.png" alt="Result Screenshot">
+  </div>
+
+  <div class="section download">
+    <a href="query.sql" download>⬇️ Download SQL File</a>
+  </div>
+
+  <div class="back-link">
+    <a href="../index.html">🔙 Back to Portfolio</a>
+  </div>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Crypto Fraud Detection</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, rgba(255,0,0,0.6), rgba(255,0,0,0.3));
+      color: black;
+      overflow-y: scroll;
+    }
+
+    .section {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      border-radius: 12px;
+      background-color: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    pre {
+      background-color: #f4f4f4;
+      padding: 1rem;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      border-left: 5px solid crimson;
+    }
+
+    img {
+      width: 100%;
+      max-width: 800px;
+      display: block;
+      margin: 0 auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .download {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .download a {
+      text-decoration: none;
+      background-color: #111;
+      color: #fff;
+      padding: 0.8rem 1.2rem;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .download a:hover {
+      background-color: #333;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .back-link a {
+      text-decoration: none;
+      font-weight: bold;
+      color: crimson;
+    }
+
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="section">
+    <h1>🕵️‍♂️ Longest Active Streaks</h1>
+  </div>
+
+  <div class="section">
+    <h2>📌 Question</h2>
+    <p>
+      You are given a table user_event_data with the following schema:<br/>
+      <code>user_event_data(user_id, event_date, engaged_duration, revenue)</code><br/><br/>
+	  Each row represents a user's engagement on a specific day.
+      🎯 <strong>Objective</strong>:
+	  
+		start_date of the longest streak
+		end_date of the longest streak
+		max_streak (number of consecutive days)
+		
+	If a user has multiple streaks of the same maximum length, return both of them order by start_date asc.
+	  
+      <ul>
+        <li>Write a SQL query to find the <strong>longest streak</strong> of consecutive active days for each user (<code>user_id</code>). For each user, return:</li>
+        <ul>
+          <li>Consecutive transactions (ordered by timestamp) must occur <strong>within 5 minutes</strong> of each other</li>
+          <li><code>user_id</code></li>
+          <li><code>start_date</code> of the longest streak</li>
+		  <li><code>end_date</code> of the longest streak</li>
+          <li><code>max_streak</code> (number of consecutive days)</li>
+        </ul>
+      </ul>
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>🧠 SQL Query</h2>
+    <pre>
+with usable_data as
+(
+	select *, event_date - interval '1 day'*(row_number() over(partition by user_id order by event_date asc)) as date_anchor
+	from multi_streak_user_activity_table as a
+	where engaged_duration > 1
+)
+, secondary_data as
+(
+	select user_id, min(event_date) as start_date, 
+	max(event_date) as end_date,
+	count(distinct event_date) as streak_length,
+	sum(revenue) as revenue_per_streak
+	from usable_data as a
+	group by user_id, date_anchor
+)
+, teritary_data as
+(
+	select *, dense_rank() over(partition by user_id order by streak_length desc) as row_handle
+	from secondary_data as a
+	where revenue_per_streak > 1
+)
+
+select user_id, date(start_date) as start_date, date(end_date) as end_date, round(revenue_per_streak::numeric, 2) as revenue, streak_length as max_streak
+from teritary_data as a
+where row_handle=1
+order by user_id, start_date;
+    </pre>
+  </div>
+
+  <div class="section">
+    <h2>📸 Output Screenshot</h2>
+    <img src="result_ss.png" alt="Result Screenshot">
+  </div>
+
+  <div class="section download">
+    <a href="query.sql" download>⬇️ Download SQL File</a>
+  </div>
+
+  <div class="back-link">
+    <a href="../index.html">🔙 Back to Portfolio</a>
+  </div>
+
 </body>
 </html>
