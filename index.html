@@ -1,262 +1,244 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>Suraj Antony – Data & ML Portfolio</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<style>
-			.grid-icons {
-				display: grid;
-				grid-template-columns: repeat(2, 1fr);
-				gap: 1.5rem;
-				padding: 0;
-				list-style: none;
-				justify-items: center;
-				align-items: center;
-			}
-			.grid-icons li {
-				text-align: center;
-			}
-			.grid-icons li span:last-child {
-				font-size: 0.85rem;
-				line-height: 1.1;
-				display: block;
-				margin-top: 0.2em;
-			}
-			
-			.cta-link {
-				text-decoration: none;
-				outline: none; /* removes dotted line */
-				color: inherit; /* keep text color consistent */
-				display: inline-flex;
-				align-items: center;
-				gap: 0.4em;
-				font-weight: bold;
-			}
-			
-			.cta-link:focus {
-				outline: 2px solid #007BFF; /* optional custom focus style */
-				outline-offset: 2px;
-			}
-			
-			.cta-arrow {
-				display: inline-block;
-				font-size: 0.9em;
-				transition: transform 0.2s ease;
-			}
-			
-			.cta-link:hover .cta-arrow {
-				transform: translateX(4px);
-			}
-			
-			.focus-areas {
-				  margin-top: 0.4em;
-				  font-size: 0.9em;
-				  color: #555;
-			}
-			
-			.focus-areas code {
-				background: #f4f4f4;
-				padding: 0 4px;
-				border-radius: 3px;
-				font-family: monospace;
-			}
-			
-			.scroll-box {
-				max-height: 300px; /* Adjust height to fit 2 project-cards */
-				overflow-y: auto;
-				padding-right: 10px; /* Room for scrollbar */
-				scrollbar-width: thin;
-				scrollbar-color: #888 transparent; /* For Firefox */
-			}
-			
-			.scroll-box::-webkit-scrollbar {
-				width: 8px;
-			}
-			
-			.scroll-box::-webkit-scrollbar-thumb {
-				background: #aaa;
-				border-radius: 4px;
-			}
-			
-			.scroll-box::-webkit-scrollbar-track {
-				background: transparent;
-			}
-			
-			.project-card {
-					margin-bottom: 1.5em; /* Space between cards */
-			}
-			
-			
+<head>
+  <title>Suraj Antony – Data & ML Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+  <style>
+    .grid-icons {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      padding: 0;
+      list-style: none;
+      justify-items: center;
+      align-items: center;
+    }
 
-		</style>
-	</head>
-	<body class="is-preload">
-		<div id="page-wrapper">
-			<div id="wrapper">
+    .grid-icons li {
+      text-align: center;
+    }
 
-				<!-- Banner -->
-				<section class="panel banner right">
-					<div class="content color0 span-3-75">
-						<h1 class="major">Hi, I'm<br />
-						Suraj Antony</h1>
-						<p>A Lead Product Analyst passionate about building data products using <strong>SQL, A/B Testing, Machine Learning, NLP, and LLMs</strong>. I enjoy solving real-world problems with thoughtful experimentation and scalable systems.</p>
-						<ul class="actions">
-							<li><a href="#skills" class="button primary color1 circle icon solid fa-angle-right">Next</a></li>
-						</ul>
-					</div>
-					<div class="image filtered span-1-75" data-position="25% 25%">
-						<img src="images/pic01.jpg" alt="Suraj Antony" />
-					</div>
-				</section>
+    .grid-icons li span:last-child {
+      font-size: 0.85rem;
+      line-height: 1.1;
+      display: block;
+      margin-top: 0.2em;
+    }
 
-				<!-- Skills -->
-				<section class="panel color1" id="skills">
-					<div class="intro joined">
-						<h2 class="major">Skills</h2>
-						<p>Here's a quick snapshot of my current skillset across data and ML domains.</p>
-					</div>
-					<div class="inner">
-						<ul class="grid-icons three connected">
-							<li><i class="icon solid fa-database"></i> SQL, DBT, and Data Modeling</li>
-							<li><i class="icon solid fa-flask"></i>A/B Testing, Experimentation and StatsModeling</li>
-							<li><i class="icon solid fa-robot"></i>ML, and Python></li>
-							<li><i class="icon solid fa-language"></i>NLP, and LLM</li>
-						</ul>
-					</div>
-				</section>
+    .cta-link {
+      text-decoration: none;
+      outline: none;
+      color: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4em;
+      font-weight: bold;
+    }
 
-				<!-- Projects -->
-				<section class="panel color2" id="projects">
-				  <div class="intro joined">
-					<h2 class="major">Projects</h2>
-					<p>Explore categorized and scalable lists of projects demonstrating my expertise.</p>
-				  </div>
-				  <div class="inner">
+    .cta-link:focus {
+      outline: 2px solid #007BFF;
+      outline-offset: 2px;
+    }
 
-					<!-- SQL Projects -->
-					<h3>SQL Projects</h3>
-					<div class="scroll-box">
-					  <div class="project-card">
-						  <ul>
-							<li>
-							  <a href="https://anjalikkadsurya.github.io/portfolio/projects/sql/dynamic_sales_leaderboard/" target="_blank" class="cta-link">
-								<span>🏆 Daily Regional Sales Leaderboard & Rewards</span>
-								<span class="cta-arrow">→</span>
-							  </a>
-							  <div class="focus-areas">
-								<code>window functions</code>, <code>running total</code>, <code>dense_rank</code>, <code>row_number</code>, <code>array_agg</code>, <code>max</code>, <code>min</code>, <code>round</code>, etc.
-							  </div>
-							</li>
-						  </ul>
-					  </div>
-					  
-					  <div class="project-card">
-						  <ul>
-							<li>
-							  <a href="https://anjalikkadsurya.github.io/portfolio/projects/sql/streak_identification/" target="_blank" class="cta-link">
-								<span>🕵️‍♂️ Longest Active Streaks</span>
-								<span class="cta-arrow">→</span>
-							  </a>
-							  <div class="focus-areas">
-								<code>date anchor</code>, <code>row_number</code>, <code>dense_rank</code>, <code>min</code>, <code>max</code>, <code>count</code>, <code>sum</code>, etc.
-							  </div>
-							</li>
-						  </ul>
-					  </div>
-					  
-					  <div class="project-card">
-						  <ul>
-							<li>
-							  <a href="https://anjalikkadsurya.github.io/portfolio/projects/sql/pivot_table/" target="_blank" class="cta-link">
-								<span>🧮 Quarterly Sales Analysis</span>
-								<span class="cta-arrow">→</span>
-							  </a>
-							  <div class="focus-areas">
-								<code>pivot table</code>, <code>filter(where)</code>, <code>concat</code>, <code>extract</code>, <code>lead/lag</code>, <code>date_trunc</code>, <code>sum</code>, <code>coalesce</code>, etc.
-							  </div>
-							</li>
-						  </ul>
-					  </div>
-					  <!-- Add more SQL projects here -->
-					</div>
-					
-					<div class="project-card">
-						  <ul>
-							<li>
-							  <a href="https://anjalikkadsurya.github.io/portfolio/projects/sql/fraud_transactions/" target="_blank" class="cta-link">
-								<span>🕵️‍♂️ Cryptocurrency Fraud Chain Detection</span>
-								<span class="cta-arrow">→</span>
-							  </a>
-							  <div class="focus-areas">
-								<code>session id creation</code>, <code>date difference</code>, <code>case when</code>, <code>running total</code>, <code>lead/lag</code>, <code>array_agg</code>, <code>min/max/sum/count</code>, <code>coalesce</code>, etc.
-							  </div>
-							</li>
-						  </ul>
-					  </div>
-					  <!-- Add more SQL projects here -->
-					</div>
-					
-					<!-- A/B Testing Projects -->
-					<h3 style="margin-top: 2em;">A/B Testing Projects</h3>
-					<div class="scroll-box">
-					  <div class="project-card">
-						<p><strong>Button Color Test:</strong> Ran a frequentist A/B test to determine the best CTA color for conversions. <a href="https://replit.com/@suraj/cta-ab-test" target="_blank">Explore A/B test</a></p>
-					  </div>
-					  <div class="project-card">
-						<p><strong>Retention Boost Experiment:</strong> Used Bayesian methods to evaluate the lift in 7-day retention post feature rollout. <a href="https://replit.com/@suraj/retention-bayes-ab" target="_blank">Run experiment</a></p>
-					  </div>
-					  <!-- Add more A/B test projects here -->
-					</div>
+    .cta-arrow {
+      display: inline-block;
+      font-size: 0.9em;
+      transition: transform 0.2s ease;
+    }
 
-				  </div>
-				</section>
+    .cta-link:hover .cta-arrow {
+      transform: translateX(4px);
+    }
 
-				<style>
-				  .scroll-box {
-					max-height: 250px;
-					overflow-y: auto;
-					padding-right: 1rem;
-					border-left: 3px solid #ccc;
-					margin-bottom: 1.5rem;
-					padding-left: 1rem;
-				  }
-				  .project-card {
-					margin-bottom: 1rem;
-				  }
-				  .project-card a {
-					color: #0052cc;
-					text-decoration: underline;
-				  }
-				</style>
+    .focus-areas {
+      margin-top: 0.4em;
+      font-size: 0.9em;
+      color: #555;
+    }
 
-				<!-- Contact -->
-				<section class="panel color4-alt" id="contact">
-					<div class="intro color4">
-						<h2 class="major">Contact</h2>
-						<p>If you'd like to discuss a project, collaboration, or just connect, feel free to reach out through the channels below.</p>
-					</div>
-					<div class="inner columns divided">
-						<div class="span-3-25">
-							<ul class="contact-icons color1">
-								<li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/suraj-antony/" target="_blank">LinkedIn</a></li>
-								<li class="icon brands fa-github"><a href="https://github.com/anjalikkadSurya" target="_blank">GitHub</a></li>
-								<li class="icon solid fa-envelope"><a href="mailto:suraj.antony18@iimv.ac.in">suraj.antony18@iimv.ac.in</a></li>
-								<li class="icon brands fa-whatsapp"><a href="https://wa.me/+919496841492">+91 94968 41492</a></li>
-							</ul>
-						</div>
-					</div>
-				</section>
+    .focus-areas code {
+      background: #f4f4f4;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: monospace;
+    }
 
-				<!-- Footer -->
-				<div class="copyright">&copy; Suraj Antony. Design adapted from <a href="https://html5up.net">HTML5 UP</a>.</div>
-			</div>
-		</div>
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/main.js"></script>
-	</body>
+    .scroll-box {
+      max-height: 300px;
+      overflow-y: auto;
+      padding-right: 10px;
+      scrollbar-width: thin;
+      scrollbar-color: #888 transparent;
+    }
+
+    .scroll-box::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .scroll-box::-webkit-scrollbar-thumb {
+      background: #aaa;
+      border-radius: 4px;
+    }
+
+    .scroll-box::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .project-card {
+      margin-bottom: 1.5em;
+    }
+
+    .project-card a {
+      color: #0052cc;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body class="is-preload">
+  <div id="page-wrapper">
+    <div id="wrapper">
+
+      <!-- Banner -->
+      <section class="panel banner right">
+        <div class="content color0 span-3-75">
+          <h1 class="major">Hi, I'm<br />Suraj Antony</h1>
+          <p>A Lead Product Analyst passionate about building data products using <strong>SQL, A/B Testing, Machine Learning, NLP, and LLMs</strong>. I enjoy solving real-world problems with thoughtful experimentation and scalable systems.</p>
+          <ul class="actions">
+            <li><a href="#skills" class="button primary color1 circle icon solid fa-angle-right">Next</a></li>
+          </ul>
+        </div>
+        <div class="image filtered span-1-75" data-position="25% 25%">
+          <img src="images/pic01.jpg" alt="Suraj Antony" />
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section class="panel color1" id="skills">
+        <div class="intro joined">
+          <h2 class="major">Skills</h2>
+          <p>Here's a quick snapshot of my current skillset across data and ML domains.</p>
+        </div>
+        <div class="inner">
+          <ul class="grid-icons three connected">
+            <li><i class="icon solid fa-database"></i> SQL, DBT, and Data Modeling</li>
+            <li><i class="icon solid fa-flask"></i>A/B Testing, Experimentation and StatsModeling</li>
+            <li><i class="icon solid fa-robot"></i>ML, and Python</li>
+            <li><i class="icon solid fa-language"></i>NLP, and LLM</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section class="panel color2" id="projects">
+        <div class="intro joined">
+          <h2 class="major">Projects</h2>
+          <p>Explore categorized and scalable lists of projects demonstrating my expertise.</p>
+        </div>
+        <div class="inner">
+
+          <!-- SQL Projects -->
+          <h3>SQL Projects</h3>
+          <div class="scroll-box">
+            <div class="project-card">
+              <ul>
+                <li>
+                  <a href="https://anjalikkadsurya.github.io/portfolio/projects/sql/dynamic_sales_leaderboard/" target="_blank" class="cta-link">
+                    <span>🏆 Daily Regional Sales Leaderboard & Rewards</span>
+                    <span class="cta-arrow">→</span>
+                  </a>
+                  <div class="focus-areas">
+                    <code>window functions</code>, <code>running total</code>, <code>dense_rank</code>, <code>row_number</code>, <code>array_agg</code>, <code>max</code>, <code>min</code>, <code>round</code>, etc.
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="project-card">
+              <ul>
+                <li>
+                  <a href="https://anjalikkadsurya.github.io/portfolio/projects/sql/streak_identification/" target="_blank" class="cta-link">
+                    <span>🕵️‍♂️ Longest Active Streaks</span>
+                    <span class="cta-arrow">→</span>
+                  </a>
+                  <div class="focus-areas">
+                    <code>date anchor</code>, <code>row_number</code>, <code>dense_rank</code>, <code>min</code>, <code>max</code>, <code>count</code>, <code>sum</code>, etc.
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="project-card">
+              <ul>
+                <li>
+                  <a href="https://anjalikkadsurya.github.io/portfolio/projects/sql/pivot_table/" target="_blank" class="cta-link">
+                    <span>🧮 Quarterly Sales Analysis</span>
+                    <span class="cta-arrow">→</span>
+                  </a>
+                  <div class="focus-areas">
+                    <code>pivot table</code>, <code>filter(where)</code>, <code>concat</code>, <code>extract</code>, <code>lead/lag</code>, <code>date_trunc</code>, <code>sum</code>, <code>coalesce</code>, etc.
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="project-card">
+              <ul>
+                <li>
+                  <a href="https://anjalikkadsurya.github.io/portfolio/projects/sql/fraud_transactions/" target="_blank" class="cta-link">
+                    <span>🕵️‍♂️ Cryptocurrency Fraud Chain Detection</span>
+                    <span class="cta-arrow">→</span>
+                  </a>
+                  <div class="focus-areas">
+                    <code>session id creation</code>, <code>date difference</code>, <code>case when</code>, <code>running total</code>, <code>lead/lag</code>, <code>array_agg</code>, <code>min/max/sum/count</code>, <code>coalesce</code>, etc.
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- A/B Testing Projects -->
+          <h3 style="margin-top: 2em;">A/B Testing Projects</h3>
+          <div class="scroll-box">
+            <div class="project-card">
+              <p><strong>Button Color Test:</strong> Ran a frequentist A/B test to determine the best CTA color for conversions. <a href="https://replit.com/@suraj/cta-ab-test" target="_blank">Explore A/B test</a></p>
+            </div>
+            <div class="project-card">
+              <p><strong>Retention Boost Experiment:</strong> Used Bayesian methods to evaluate the lift in 7-day retention post feature rollout. <a href="https://replit.com/@suraj/retention-bayes-ab" target="_blank">Run experiment</a></p>
+            </div>
+            <!-- Add more A/B test projects here -->
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="panel color4-alt" id="contact">
+        <div class="intro color4">
+          <h2 class="major">Contact</h2>
+          <p>If you'd like to discuss a project, collaboration, or just connect, feel free to reach out through the channels below.</p>
+        </div>
+        <div class="inner columns divided">
+          <div class="span-3-25">
+            <ul class="contact-icons color1">
+              <li class="icon brands fa-linkedin"><a href="https://www.linkedin.com/in/suraj-antony/" target="_blank">LinkedIn</a></li>
+              <li class="icon brands fa-github"><a href="https://github.com/anjalikkadSurya" target="_blank">GitHub</a></li>
+              <li class="icon solid fa-envelope"><a href="mailto:suraj.antony18@iimv.ac.in">suraj.antony18@iimv.ac.in</a></li>
+              <li class="icon brands fa-whatsapp"><a href="https://wa.me/+919496841492">+91 94968 41492</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <div class="copyright">&copy; Suraj Antony. Design adapted from <a href="https://html5up.net">HTML5 UP</a>.</div>
+    </div>
+  </div>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
 </html>
