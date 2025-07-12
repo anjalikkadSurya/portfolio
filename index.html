@@ -95,6 +95,11 @@
       color: #0052cc;
       text-decoration: underline;
     }
+	
+	.no-bullets {
+		list-style-type: none;
+		padding-left: 0; /* optional: aligns text to the left */
+	}
   </style>
 </head>
 <body class="is-preload">
@@ -115,92 +120,127 @@
         </div>
       </section>
 
-      <!-- Skills -->
+	<!-- Skills -->
 		<section class="panel color1" id="skills">
 		  <div class="intro joined">
 			<h2 class="major">Skills</h2>
 			<p>Here's a quick snapshot of my current skillset across data and ML domains.</p>
 		  </div>
 		  <div class="inner">
-			<ul>
-			  <li>
-				<span class="icon solid fa-database"></span> Experimentation & Causal Inference
-				<ul>
-				  <li>
-					<code>A/B Testing</code>, <code>Fixed Effects Regression</code>, <code>Difference-in-Differences (DiD)</code>,<br/>
-					<code>CUPED</code>, <code>ANCOVA</code>, <code>Propensity Score Matching (PSM)</code>,<br/>
-					<code>Stratified Sampling</code>, <code>Cluster randomisation</code>, <code>Linear regression</code>,<br/>
-					<code>Logistic regression</code>
-				  </li>
-				</ul>
-			  </li>
 
-			  <li>
-				<span class="icon solid fa-flask"></span> Statistical Modelling & Analytics
-				<ul>
-				  <li>
-					<code>Hypothesis Testing</code>, <code>Segmentation</code>, <code>Pre/Post Analysis</code>,<br/>
-					<code>Bayesian modelling</code>
-				  </li>
-				</ul>
-			  </li>
+          <!-- SQL Projects -->
+          <h3>Skills:</h3>
+          <div class="scroll-box">
+            
+			<div class="project-card">
+              <ul class="no-bullets">
+                <li>
+					<span class="icon solid fa-database"></span> Experimentation & Causal Inference
+						<ul class="no-bullets">
+						  <li>
+							<code>A/B Testing</code>, <code>Fixed Effects Regression</code>, <code>Difference-in-Differences (DiD)</code>,<br/>
+							<code>CUPED</code>, <code>ANCOVA</code>, <code>Propensity Score Matching (PSM)</code>,<br/>
+							<code>Stratified Sampling</code>, <code>Cluster randomisation</code>, <code>Linear regression</code>,<br/>
+							<code>Logistic regression</code>
+						  </li>
+						</ul>
+				</li>
+              </ul>
+            </div>
+			
+			<div class="project-card">
+              <ul class="no-bullets">
+                <li>
+					<span class="icon solid fa-flask"></span> Statistical Modelling & Analytics
+						<ul class="no-bullets">
+						  <li>
+							<code>Hypothesis Testing</code>, <code>Segmentation</code>, <code>Pre/Post Analysis</code>,<br/>
+							<code>Bayesian modelling</code>
+						  </li>
+						</ul>
+				</li>
+              </ul>
+            </div>
+			
+			<div class="project-card">
+              <ul class="no-bullets">
+                <li>
+					<span class="icon solid fa-robot"></span> SQL & Data Engineering
+						<ul class="no-bullets">
+						  <li>
+							<code>Advanced SQL</code>, <code>Window Functions</code>, <code>DBT</code>,<br/>
+							<code>Data Modelling</code>, <code>Data Pipeline Optimization</code>, <code>Clickstream Architecture</code>,<br/>
+							<code>Big Data</code>, <code>Snowflake</code>, <code>BigQuery</code>,<br/>
+							<code>Redshift</code>, <code>Data Governance</code>, <code>Version Control</code>,<br/>
+							<code>Jira</code>
+						  </li>
+						</ul>
+				</li>
+              </ul>
+            </div>
+			
+			<div class="project-card">
+              <ul class="no-bullets">
+                <li>
+					<span class="icon solid fa-language"></span> Product Analytics & Metrics
+						<ul class="no-bullets">
+						  <li>
+							<code>Retention</code>, <code>Activation</code>, <code>DAU/WAU/MAU</code>,<br/>
+							<code>Funnel Analysis</code>, <code>Root Cause Analysis (RCA)</code>, <code>Growth Metrics</code>,<br/>
+							<code>North Star KPIs</code>
+						  </li>
+						</ul>
+				</li>
+              </ul>
+            </div>
 
-			  <li>
-				<span class="icon solid fa-robot"></span> SQL & Data Engineering
-				<ul>
-				  <li>
-					<code>Advanced SQL</code>, <code>Window Functions</code>, <code>DBT</code>,<br/>
-					<code>Data Modelling</code>, <code>Data Pipeline Optimization</code>, <code>Clickstream Architecture</code>,<br/>
-					<code>Big Data</code>, <code>Snowflake</code>, <code>BigQuery</code>,<br/>
-					<code>Redshift</code>, <code>Data Governance</code>, <code>Version Control</code>,<br/>
-					<code>Jira</code>
-				  </li>
-				</ul>
-			  </li>
-
-			  <li>
-				<span class="icon solid fa-language"></span> Product Analytics & Metrics
-				<ul>
-				  <li>
-					<code>Retention</code>, <code>Activation</code>, <code>DAU/WAU/MAU</code>,<br/>
-					<code>Funnel Analysis</code>, <code>Root Cause Analysis (RCA)</code>, <code>Growth Metrics</code>,<br/>
-					<code>North Star KPIs</code>
-				  </li>
-				</ul>
-			  </li>
-
-			  <li>
-				<span class="icon solid fa-flask"></span> Visualization & Storytelling
-				<ul>
-				  <li>
-					<code>Tableau</code>, <code>Power BI</code>, <code>Apache Superset</code>,<br/>
-					<code>Stakeholder Presentations</code>, <code>Narrative Dashboards</code>
-				  </li>
-				</ul>
-			  </li>
-
-			  <li>
-				<span class="icon solid fa-robot"></span> Languages & Tools
-				<ul>
-				  <li>
-					<code>SQL</code>, <code>Python (statsmodels, scipy, sklearn, pandas)</code>,<br/>
-					<code>DBT</code>, <code>Excel (advanced, pivot)</code>, <code>Git</code>
-				  </li>
-				</ul>
-			  </li>
-
-			  <li>
-				<span class="icon solid fa-language"></span> Soft Skills
-				<ul>
-				  <li>
-					<code>Stakeholder Communication</code>, <code>Product Thinking</code>,<br/>
-					<code>Mentorship</code>, <code>Insight Translation</code>, <code>Data storytelling</code>
-				  </li>
-				</ul>
-			  </li>
-			</ul>
-		  </div>
-		</section>
+            
+			<div class="project-card">
+              <ul class="no-bullets">
+                <li>
+					<span class="icon solid fa-flask"></span> Visualization & Storytelling
+						<ul class="no-bullets">
+						  <li>
+							<code>Tableau</code>, <code>Power BI</code>, <code>Apache Superset</code>,<br/>
+							<code>Stakeholder Presentations</code>, <code>Narrative Dashboards</code>
+						  </li>
+						</ul>
+				</li>
+              </ul>
+            </div>
+			
+			<div class="project-card">
+              <ul class="no-bullets">
+                <li>
+					<span class="icon solid fa-robot"></span> Languages & Tools
+						<ul class="no-bullets">
+						  <li>
+							<code>SQL</code>, <code>Python (statsmodels, scipy, sklearn, pandas)</code>,<br/>
+							<code>DBT</code>, <code>Excel (advanced, pivot)</code>, <code>Git</code>
+						  </li>
+						</ul>
+				</li>
+              </ul>
+            </div>
+			
+			<div class="project-card">
+              <ul class="no-bullets">
+                <li>
+					<span class="icon solid fa-language"></span> Soft Skills
+						<ul class="no-bullets">
+						  <li>
+							<code>Stakeholder Communication</code>, <code>Product Thinking</code>,<br/>
+							<code>Mentorship</code>, <code>Insight Translation</code>, <code>Data storytelling</code>
+						  </li>
+						</ul>
+				</li>
+              </ul>
+            </div>
+			
+			
+          </div>
+        </div>
+      </section>
 
 
       <!-- Projects SQL -->
@@ -269,6 +309,7 @@
                 </li>
               </ul>
             </div>
+			
           </div>
         </div>
       </section>
